@@ -5,7 +5,7 @@
 <a href="/">Home</a>
 
 <!-- 
-    TODO: Use the guest object to display the correct name, email, phone, and
+    Using the guest object to display the correct name, email, phone, and
     events attending
 -->
 
@@ -17,8 +17,8 @@
 <h2>Events Attending:</h2>
 
 <ul>
-    {% for i in guests.events_attending %}
-    <li><a href="/event/{{event.id}}">{{event.title}}</a></li>
+    {% for i in guest.events_attending %}
+    <li><a href="/event/{{i.id}}">{{i.title}}</a></li>
     {% endfor %}
 </ul>
 
