@@ -79,12 +79,10 @@ def create():
         new_event_description = request.form.get('description')
         date = request.form.get('date')
         time = request.form.get('time')
-        print("in if statement")
+    
 
         try:
-            print("inside try block")
-            print(date)
-            print(time)
+            
             date_and_time = datetime.strptime(
                 f'{date} {time}',
                 '%Y-%m-%d %H:%M')
@@ -92,13 +90,12 @@ def create():
             db.session.add(new_event)
             db.session.commit()
             flash('Event created.')
-            print("I made an event")
+            
             return redirect(url_for('main.index'))
 
         
         except ValueError:
-            print("I am in the except block")
-            print('there was an error: incorrect datetime format')
+            
             return redirect(url_for('main.index'))
 
 
@@ -107,7 +104,7 @@ def create():
         
         
     else:
-        print("I am in the else statement")
+        
         return render_template('create.html')
 
 
